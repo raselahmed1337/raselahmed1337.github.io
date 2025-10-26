@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rasel Ahmed — Researcher in ML & Optimization</title>
-  <!-- Font Awesome for icons -->
+  <meta name="description" content="Rasel Ahmed — Researcher in Machine Learning, Optimization & AI for Healthcare. Graduate Research Assistant at Multimedia University (MMU), Malaysia.">
+  <title>Rasel Ahmed — ML & Optimization Researcher</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root {
-      --primary: #0077b6;
-      --primary-dark: #023e8a;
-      --accent: #03045e;
-      --light-bg: #f9f9fb;
-      --text: #2d3748;
-      --text-light: #718096;
-      --white: #ffffff;
-      --shadow: 0 4px 12px rgba(0,0,0,0.08);
-      --radius: 8px;
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --accent: #0f172a;
+      --bg: #ffffff;
+      --text: #1e293b;
+      --text-secondary: #64748b;
+      --border: #e2e8f0;
+      --card-bg: #f8fafc;
+      --shadow: 0 4px 12px rgba(0,0,0,0.05);
+      --radius: 12px;
     }
 
     * {
@@ -26,93 +27,111 @@
     }
 
     body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.7;
       color: var(--text);
-      background-color: var(--light-bg);
+      background-color: #fafbff;
       scroll-behavior: smooth;
     }
 
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: var(--white);
-      padding: 2rem 1rem;
+    /* Sticky Navigation Bar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(135deg, var(--primary), #0c4a6e);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar a {
+      color: rgba(255,255,255,0.95);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding: 0.4rem 0.6rem;
+      border-radius: 8px;
+      transition: background 0.25s ease;
+    }
+
+    .navbar a:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* Hero Section (formerly part of header) */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), #0c4a6e);
+      color: white;
+      padding: 4rem 1.5rem 2.5rem;
       text-align: center;
-      position: relative;
     }
 
-    header h1 {
-      font-size: 2.6rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
     }
 
-    header p.subtitle {
+    .hero p.subtitle {
       font-size: 1.2rem;
       opacity: 0.95;
       max-width: 700px;
       margin: 0 auto;
+      font-weight: 400;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.4rem 0.8rem;
-      border-radius: var(--radius);
-      transition: background 0.3s ease;
-    }
-
-    nav a:hover {
-      background: rgba(255,255,255,0.15);
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
     section {
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
+      padding: 3.5rem 0;
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: var(--primary);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
+      font-weight: 700;
       position: relative;
     }
 
     h2::after {
       content: '';
       display: block;
-      width: 50px;
-      height: 4px;
-      background: var(--primary);
-      border-radius: 2px;
-      margin-top: 0.5rem;
+      width: 40px;
+      height: 3px;
+      background: var(--primary-light);
+      margin-top: 0.6rem;
     }
 
     .about-content {
       display: flex;
-      gap: 2rem;
+      gap: 2.2rem;
       align-items: flex-start;
       flex-wrap: wrap;
     }
 
-    .about-content img {
+    .profile-img {
       width: 180px;
-      height: auto;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      height: 180px;
+      border-radius: 50%;
       object-fit: cover;
-      margin: 0 auto;
+      box-shadow: var(--shadow);
+      border: 3px solid white;
     }
 
     .about-text {
@@ -121,11 +140,38 @@
     }
 
     .about-text p {
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       text-align: justify;
     }
 
-    .experience-grid, .skills-grid {
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      margin-bottom: 1.4rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      font-size: 1.35rem;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+    }
+
+    .card .meta {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .experience-grid {
       display: grid;
       gap: 1.8rem;
     }
@@ -136,85 +182,55 @@
       }
     }
 
-    .card {
-      background: var(--white);
-      padding: 1.5rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    }
-
-    .card h3 {
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-      font-size: 1.35rem;
-    }
-
-    .card .meta {
-      color: var(--text-light);
-      font-size: 0.95rem;
-      margin-bottom: 0.8rem;
-      font-style: italic;
-    }
-
-    .card ul {
-      padding-left: 1.4rem;
-    }
-
-    .card li {
-      margin-bottom: 0.5rem;
-    }
-
     .skills-grid {
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.6rem;
     }
 
-    .skill-category h3 {
+    .skills-grid h3 {
       margin-bottom: 0.8rem;
+      color: var(--primary);
     }
 
-    .skill-category ul {
+    .skills-grid ul {
       list-style: none;
       padding: 0;
     }
 
-    .skill-category li {
-      padding: 0.4rem 0;
-      border-bottom: 1px dashed #eee;
+    .skills-grid li {
+      padding: 0.45rem 0;
+      color: var(--text);
+      border-bottom: 1px dashed var(--border);
     }
 
-    .skill-category li:last-child {
+    .skills-grid li:last-child {
       border-bottom: none;
     }
 
-    .publication-item {
-      background: var(--white);
-      padding: 1.4rem;
-      border-radius: var(--radius);
-      margin-bottom: 1.2rem;
-      box-shadow: var(--shadow);
+    .publication {
+      background: var(--bg);
+      border-left: 4px solid var(--primary-light);
+      padding: 1.4rem 1.4rem 1.4rem 1.6rem;
+      margin-bottom: 1.6rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
     }
 
-    .publication-title {
+    .publication .title {
       font-weight: 600;
       font-size: 1.15rem;
-      margin-bottom: 0.5rem;
       color: var(--accent);
+      margin-bottom: 0.4rem;
     }
 
-    .publication-meta {
+    .publication .journal {
       font-size: 0.95rem;
-      color: var(--text-light);
+      color: var(--text-secondary);
       margin-bottom: 0.8rem;
     }
 
-    .publication-link {
-      color: var(--primary);
+    .publication .link {
+      color: var(--primary-light);
       text-decoration: none;
       font-weight: 600;
       display: inline-flex;
@@ -222,281 +238,232 @@
       gap: 0.4rem;
     }
 
-    .publication-link:hover {
+    .publication .link:hover {
       text-decoration: underline;
     }
 
     .contact-info {
       text-align: center;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
+      margin: 1.5rem 0;
+    }
+
+    .contact-info a {
+      color: var(--primary);
+      text-decoration: none;
     }
 
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 1.2rem;
-      margin-top: 1.2rem;
+      gap: 1.4rem;
+      margin-top: 1.4rem;
     }
 
     .social-links a {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      background: var(--white);
+      background: var(--bg);
       color: var(--primary);
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       text-decoration: none;
       box-shadow: var(--shadow);
       transition: all 0.3s ease;
+      border: 1px solid var(--border);
     }
 
     .social-links a:hover {
       background: var(--primary);
-      color: var(--white);
+      color: white;
       transform: scale(1.1);
     }
 
     footer {
-      background: var(--primary-dark);
-      color: var(--white);
       text-align: center;
-      padding: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    /* Dark Mode Toggle (Optional) */
-    .theme-toggle {
-      position: absolute;
-      top: 1.2rem;
-      right: 1.2rem;
-      background: rgba(255,255,255,0.2);
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      color: white;
-      cursor: pointer;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 2rem 1rem 2.5rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
     }
 
     @media (max-width: 768px) {
-      header h1 { font-size: 2.1rem; }
-      header p.subtitle { font-size: 1rem; }
-      nav ul { gap: 1rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero p.subtitle { font-size: 1.05rem; }
+      .navbar ul { gap: 1.2rem; }
       .about-content { flex-direction: column; text-align: center; }
-      .about-content img { margin: 0 auto 1.2rem; }
+      .profile-img { margin: 0 auto 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
-      <i class="fas fa-moon"></i>
-    </button>
+  <!-- Sticky Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
     <h1>Rasel Ahmed</h1>
-    <p class="subtitle">Researcher in Machine Learning, Optimization & Healthcare AI</p>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experiences">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <p class="subtitle">Graduate Research Assistant | Machine Learning • Optimization • Healthcare AI</p>
+  </div>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="about-content">
-      <img src="RaselAhmed_raselahmed1337.jpeg" alt="Rasel Ahmed" />
-      <div class="about-text">
-        <p>
-          I am a Master of Engineering Science candidate at <strong>Multimedia University (MMU), Cyberjaya</strong>, specializing in <strong>optimization-based machine learning</strong> for real-world applications. My thesis, <em>“Optimization Based Trading”</em>, explores the intersection of mathematical optimization, deep learning, and algorithmic decision-making.
-        </p>
-        <p>
-          As a <strong>Graduate Research Assistant</strong> at MMU, I investigate scalable optimization frameworks and interpretable AI models in healthcare and finance. I hold a BSc in Computer Science & Engineering from <strong>American International University-Bangladesh (AIUB)</strong>.
-        </p>
-        <p>
-          I thrive in collaborative research environments but am equally capable of driving independent projects. I am passionate about open science, reproducible research (using <strong>LaTeX/Overleaf</strong>), and contributing to <strong>impact-driven AI solutions</strong>.
-        </p>
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <div class="about-content">
+        <img src="RaselAhmed_raselahmed1337.jpeg" alt="Rasel Ahmed" class="profile-img" />
+        <div class="about-text">
+          <p>
+            I am a <strong>Graduate Research Assistant</strong> at <strong>Multimedia University (MMU), Cyberjaya, Malaysia</strong>, pursuing a <strong>Master of Engineering Science</strong> with a research focus on <em>optimization-based machine learning for real-world decision systems</em>.
+          </p>
+          <p>
+            My thesis, <strong>“Optimization Based Trading”</strong>, explores the synergy between mathematical programming, deep learning, and algorithmic decision-making. My broader research interests include <strong>interpretable AI, predictive modeling in healthcare</strong>, and <strong>scalable optimization frameworks</strong>.
+          </p>
+          <p>
+            I hold a <strong>BSc in Computer Science & Engineering</strong> from <em>American International University-Bangladesh (AIUB)</em>. I am proficient in <strong>Python, LaTeX (Overleaf)</strong>, and open-source research tools, and I actively contribute to reproducible, impact-driven science.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="experiences">
-    <h2>Experience</h2>
-    <div class="experience-grid">
-      <div class="card">
-        <h3>Graduate Research Assistant</h3>
-        <div class="meta">Multimedia University (MMU) • 2024 – Present</div>
-        <ul>
-          <li>Conducting advanced research in optimization modeling and ML for healthcare applications.</li>
-          <li>Developing explainable AI systems with emphasis on model interpretability and robustness.</li>
-        </ul>
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <div class="experience-grid">
+        <div class="card">
+          <h3>Graduate Research Assistant</h3>
+          <div class="meta">Multimedia University (MMU) • 2024 – Present</div>
+          <ul>
+            <li>Designing optimization models integrated with ML for healthcare prediction tasks.</li>
+            <li>Developing explainable AI pipelines using feature selection and model interpretability techniques.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>AI Research Intern</h3>
+          <div class="meta">Artificial Intelligence Research and Innovation Lab (AIRIL) • Sep–Dec 2023</div>
+          <ul>
+            <li>Prototyped ML models for behavioral data analysis.</li>
+            <li>Contributed to dataset curation and evaluation using Orange and Weka.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Research Trainee</h3>
+          <div class="meta">Islamic Bank Training and Research Academy (IBTRA) • Sep–Dec 2023</div>
+          <ul>
+            <li>Explored AI applications in Islamic fintech and risk assessment.</li>
+            <li>Analyzed financial behavior patterns using data mining techniques.</li>
+          </ul>
+        </div>
       </div>
-      <div class="card">
-        <h3>AI Research Intern</h3>
-        <div class="meta">Artificial Intelligence Research and Innovation Lab (AIRIL) • Sep–Dec 2023</div>
-        <ul>
-          <li>Researched cutting-edge AI techniques for real-world problem solving.</li>
-          <li>Assisted in prototyping ML models and co-authored research outputs.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Research Trainee</h3>
-        <div class="meta">Islamic Bank Training and Research Academy (IBTRA) • Sep–Dec 2023</div>
-        <ul>
-          <li>Explored AI integration in Islamic fintech and financial risk modeling.</li>
-          <li>Analyzed transactional data to derive behavioral insights.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="skills">
-    <h2>Technical Expertise</h2>
-    <div class="skills-grid">
-      <div class="card skill-category">
-        <h3>Core Research Areas</h3>
-        <ul>
-          <li>Mathematical Optimization</li>
-          <li>Machine Learning</li>
-          <li>Deep Learning</li>
-          <li>Explainable AI (XAI)</li>
-          <li>Healthcare Informatics</li>
-        </ul>
+    <section id="skills">
+      <h2>Technical Expertise</h2>
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Research Areas</h3>
+          <ul>
+            <li>Mathematical Optimization</li>
+            <li>Machine Learning</li>
+            <li>Deep Learning</li>
+            <li>Explainable AI (XAI)</li>
+            <li>Healthcare Informatics</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Languages & Tools</h3>
+          <ul>
+            <li>Python (scikit-learn, PyTorch)</li>
+            <li>C / C++</li>
+            <li>Bash</li>
+            <li>LaTeX / Overleaf</li>
+            <li>Orange, Weka, Google Colab</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Databases</h3>
+          <ul>
+            <li>PostgreSQL</li>
+            <li>MySQL</li>
+            <li>Oracle</li>
+            <li>NoSQL (MongoDB)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Languages</h3>
+          <ul>
+            <li>English (Fluent)</li>
+            <li>Bangla (Native)</li>
+          </ul>
+        </div>
       </div>
-      <div class="card skill-category">
-        <h3>Programming & Tools</h3>
-        <ul>
-          <li>Python (PyTorch, Scikit-learn)</li>
-          <li>C/C++</li>
-          <li>Bash / Shell Scripting</li>
-          <li>LaTeX / Overleaf</li>
-          <li>Orange, Weka, Google Colab</li>
-        </ul>
-      </div>
-      <div class="card skill-category">
-        <h3>Databases</h3>
-        <ul>
-          <li>PostgreSQL</li>
-          <li>MySQL</li>
-          <li>Oracle</li>
-          <li>NoSQL (MongoDB)</li>
-        </ul>
-      </div>
-      <div class="card skill-category">
-        <h3>Languages & Soft Skills</h3>
-        <ul>
-          <li>English (Fluent)</li>
-          <li>Bangla (Native)</li>
-          <li>Strong Communication</li>
-          <li>Problem Solving</li>
-          <li>Fast Learner</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="publications">
-    <h2>Publications</h2>
-    <div class="publication-item">
-      <div class="publication-title">
-        Preventing Student’s Mental Health Problems with the Help of Data Mining
-      </div>
-      <div class="publication-meta">
-        <em>International Journal of Computing</em>, Vol. 23, No. 1, pp. 101–108 (2024)
-      </div>
-      <a href="https://doi.org/10.47839/ijc.23.1.3441" target="_blank" class="publication-link">
-        <i class="fas fa-external-link-alt"></i> View Paper
-      </a>
-    </div>
-    <div class="publication-item">
-      <div class="publication-title">
-        A novel integrated logistic regression model enhanced with recursive feature elimination and explainable artificial intelligence for dementia prediction
-      </div>
-      <div class="publication-meta">
-        <em>Healthcare Technology Letters</em> (2024)
-      </div>
-      <a href="https://doi.org/10.1016/j.health.2024.100362" target="_blank" class="publication-link">
-        <i class="fas fa-external-link-alt"></i> View Paper
-      </a>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-info">
-      <p>📧 <a href="mailto:raselahmed1337@gmail.com" style="color: var(--primary); text-decoration: none;">raselahmed1337@gmail.com</a></p>
-      <div class="social-links">
-        <a href="https://github.com/raselahmed1337" target="_blank" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/raselahmed1337" target="_blank" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://twitter.com/raselahmed1337" target="_blank" aria-label="Twitter/X">
-          <i class="fab fa-x-twitter"></i>
+    <section id="publications">
+      <h2>Publications</h2>
+      <div class="publication">
+        <div class="title">Preventing Student’s Mental Health Problems with the Help of Data Mining</div>
+        <div class="journal"><em>International Journal of Computing</em>, 23(1), 101–108 (2024)</div>
+        <a href="https://doi.org/10.47839/ijc.23.1.3441" target="_blank" class="link">
+          <i class="fas fa-external-link-alt"></i> Read Paper
         </a>
       </div>
-    </div>
-  </section>
+      <div class="publication">
+        <div class="title">A novel integrated logistic regression model enhanced with recursive feature elimination and explainable artificial intelligence for dementia prediction</div>
+        <div class="journal"><em>Healthcare Technology Letters</em> (2024)</div>
+        <a href="https://doi.org/10.1016/j.health.2024.100362" target="_blank" class="link">
+          <i class="fas fa-external-link-alt"></i> Read Paper
+        </a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        <p>📧 <a href="mailto:raselahmed1337@gmail.com">raselahmed1337@gmail.com</a></p>
+        <div class="social-links">
+          <a href="https://github.com/raselahmed1337" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/raselahmed1337" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://twitter.com/raselahmed1337" target="_blank" aria-label="Twitter/X">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Rasel Ahmed. All rights reserved.</p>
+    <p>© 2025 Rasel Ahmed. Researcher in AI & Optimization.</p>
   </footer>
 
   <script>
-    // Smooth scrolling
+    // Smooth scroll with offset to account for sticky navbar
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
+          const offsetTop = target.offsetTop - 80; // account for navbar height
           window.scrollTo({
-            top: target.offsetTop - 80,
+            top: offsetTop,
             behavior: 'smooth'
           });
         }
-      });
-    });
-
-    // Optional: Dark mode toggle
-    const themeToggle = document.getElementById('themeToggle');
-    const icon = themeToggle.querySelector('i');
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      if (document.body.classList.contains('dark-mode')) {
-        icon.className = 'fas fa-sun';
-        localStorage.setItem('theme', 'dark');
-      } else {
-        icon.className = 'fas fa-moon';
-        localStorage.setItem('theme', 'light');
-      }
-    });
-
-    // Load saved theme
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark-mode');
-      icon.className = 'fas fa-sun';
-    }
-  </script>
-</body>
-</html>    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
       });
     });
   </script>
