@@ -34,7 +34,7 @@
       scroll-behavior: smooth;
     }
 
-    /* Sticky Navigation Bar */
+    /* Sticky Navigation */
     .navbar {
       position: sticky;
       top: 0;
@@ -69,7 +69,7 @@
       background: rgba(255,255,255,0.15);
     }
 
-    /* Hero Section (formerly part of header) */
+    /* Hero Section */
     .hero {
       background: linear-gradient(135deg, var(--primary), #0c4a6e);
       color: white;
@@ -126,12 +126,12 @@
     }
 
     .profile-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 0; /* Rectangular */
       box-shadow: var(--shadow);
-      border: 3px solid white;
+      margin: 0 auto;
     }
 
     .about-text {
@@ -296,13 +296,13 @@
       .hero p.subtitle { font-size: 1.05rem; }
       .navbar ul { gap: 1.2rem; }
       .about-content { flex-direction: column; text-align: center; }
-      .profile-img { margin: 0 auto 1.5rem; }
+      .profile-img { margin-bottom: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Sticky Navigation Bar -->
+  <!-- Sticky Navbar -->
   <nav class="navbar">
     <ul>
       <li><a href="#about">About</a></li>
@@ -313,7 +313,7 @@
     </ul>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <div class="hero">
     <h1>Rasel Ahmed</h1>
     <p class="subtitle">Graduate Research Assistant | Machine Learning • Optimization • Healthcare AI</p>
@@ -326,11 +326,13 @@
         <img src="RaselAhmed_raselahmed1337.jpeg" alt="Rasel Ahmed" class="profile-img" />
         <div class="about-text">
           <p>
-            I am a <strong>Graduate Research Assistant</strong> at <strong>Multimedia University (MMU), Cyberjaya, Malaysia</strong>, pursuing a <strong>Master of Engineering Science</strong> with a research focus on <em>mathematical optimization based system</em>.
+            I'm a problem solver, fast learner, and researcher with a BSc in Computer Science & Engineering from <strong>American International University-Bangladesh (AIUB)</strong>. I'm currently pursuing a <strong>Master of Engineering Science</strong> at <strong>Multimedia University (MMU), Cyberjaya, Malaysia</strong>, with research focused on <em>mathematical optimization, machine learning, and deep learning for real-world applications</em>.
           </p>
-          
           <p>
-            I hold a <strong>BSc in Computer Science & Engineering</strong> from <em>American International University-Bangladesh (AIUB)</em>. I am proficient in <strong>Python, LaTeX (Overleaf)</strong>, and open-source research tools, and I actively contribute to reproducible, impact-driven science.
+            My thesis, <strong>“Optimization Based Trading”</strong>, explores intelligent decision systems at the intersection of algorithms and real-world constraints. I’m passionate about <strong>interpretable AI, healthcare prediction models</strong>, and <strong>scalable optimization frameworks</strong>.
+          </p>
+          <p>
+            I thrive in both collaborative and independent settings and am always eager to expand my skills through <strong>challenging projects, mentorship, and open research</strong>. Proficient in <strong>LaTeX (Overleaf)</strong> for technical writing, I'm open to <strong>research collaborations, open-source contributions</strong>, and opportunities to join <strong>impact-driven teams</strong>.
           </p>
         </div>
       </div>
@@ -450,15 +452,14 @@
   </footer>
 
   <script>
-    // Smooth scroll with offset to account for sticky navbar
+    // Smooth scroll with offset for sticky navbar
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          const offsetTop = target.offsetTop - 80; // account for navbar height
           window.scrollTo({
-            top: offsetTop,
+            top: target.offsetTop - 80,
             behavior: 'smooth'
           });
         }
