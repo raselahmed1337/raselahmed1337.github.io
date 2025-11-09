@@ -116,7 +116,7 @@
 <!-- ----------  auto-scholar list  ---------- -->
 <section id="publications">
   <h2>Recent Publications</h2>
-  <p style="font-size:0.85rem;color:var(--text-secondary)">Synced daily with <a href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID" target="_blank">Google Scholar</a></p>
+  <p style="font-size:0.85rem;color:var(--text-secondary)">Synced daily with <a href="https://scholar.google.com/citations?user=1qLYFGYAAAAJ" target="_blank">Google Scholar</a></p>
   <div id="publications-container"><!-- filled by JS on load --></div>
 </section>
 
@@ -191,7 +191,7 @@
   <div style="display:flex;gap:1rem;justify-content:center;margin-top:1.2rem">
     <a class="social-link" href="https://github.com/raselahmed1337" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
     <a class="social-link" href="https://linkedin.com/in/raselahmed1337" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    <a class="social-link" href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+    <a class="social-link" href="https://scholar.google.com/citations?user=1qLYFGYAAAAJ" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
   </div>
 </section>
 
@@ -237,7 +237,7 @@ fetch('_data/scholar.json')
         <div class="scholar-venue">${p.venue} · ${p.year}</div>
         <a class="scholar-link" href="${p.link}" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Scholar</a>
       </article>`).join('') +
-      '<div class="scholar-footer"><a class="btn-outline" href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID">View complete list →</a></div>';
+      '<div class="scholar-footer"><a class="btn-outline" href="https://scholar.google.com/citations?user=1qLYFGYAAAAJ">View complete list →</a></div>';
   })
   .catch(() => {
     document.getElementById('publications-container').innerHTML =
