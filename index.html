@@ -237,7 +237,7 @@ fetch('_data/scholar.json')
         <div class="scholar-venue">${p.venue} · ${p.year}</div>
         <a class="scholar-link" href="${p.link}" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Scholar</a>
       </article>`).join('') +
-      '<div class="scholar-footer"><a class="btn-outline" href="https://scholar.google.com/citations?user=1qLYFGYAAAAJ">View complete list →</a></div>';
+      '<div class="scholar-footer"><a class="btn-outline" href="https://scholar.google.com/citations?user=1qLYFGYAAAAJ&hl=en&oi=ao">View complete list →</a></div>';
   })
   .catch(() => {
     document.getElementById('publications-container').innerHTML =
