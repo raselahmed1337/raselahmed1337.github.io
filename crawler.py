@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import json, os, re, requests, sys
 
-UID   = "1qLYFGYAAAAJ"   # <--- your Scholar ID
-URL   = f"https://scholar.google.com/citations?user={UID}&hl=en&cstart=0&pagesize=100"
+#UID   = "1qLYFGYAAAAJ"   # <--- your Scholar ID
+URL   = f"https://scholar.google.com/citations?user=1qLYFGYAAAAJ&hl=en&oi=ao"
 HEAD  = {"User-Agent": "Mozilla/5.0 (compatible; GitHub-ScholarBot/1.0)"}
 
 html  = requests.get(URL, headers=HEAD, timeout=30).text
