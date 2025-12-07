@@ -1,21 +1,19 @@
 name: 📚 Scholar sync
 on:
-  schedule:     # 06:00 UTC every day
-    - cron: '0 6 * * *'
-  workflow_dispatch:  # manual trigger button
+  schedule:
+    - cron: '0 6 * * *'   # 06:00 UTC daily
+  workflow_dispatch:      # manual trigger button
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install Python deps
-        run: pip install requests
-
-      - name: Run crawler
-        run: python crawler.py
+      - name: Fetch papers (SerpAPI)
+        run: |
+          curl -sS "https://serpapi.com/search.json?engine=google_scholar_author&author_id=1qLYFGYAAAAJ&num=100&api_key=${{ secrets.SERPAPI_KEY }}" \
+          | jq '[.articles[] | {title, authors: .authors, venue: .publication, year: .year|tonumber, link: .link}]' \
+          > _data/scholar.json
 
       - name: Commit & push if changed
         run: |
